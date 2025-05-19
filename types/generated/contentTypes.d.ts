@@ -672,6 +672,65 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiOfficeNoteOfficeNote extends Struct.CollectionTypeSchema {
+  collectionName: 'office_notes';
+  info: {
+    displayName: 'Office Note';
+    pluralName: 'office-notes';
+    singularName: 'office-note';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    car_amount: Schema.Attribute.String;
+    contact_name: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    extra_hire_amount: Schema.Attribute.String;
+    line_id: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::office-note.office-note'
+    > &
+      Schema.Attribute.Private;
+    phone_number: Schema.Attribute.String;
+    product_amount: Schema.Attribute.String;
+    product_categories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-category.product-category'
+    >;
+    product_remark: Schema.Attribute.Text;
+    product_sku: Schema.Attribute.String;
+    product_types: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-type.product-type'
+    >;
+    product_unit: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::product-unit.product-unit'
+    >;
+    project_company: Schema.Attribute.String;
+    project_name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    site_access_card_needed: Schema.Attribute.Boolean;
+    site_access_contact_name: Schema.Attribute.String;
+    site_address: Schema.Attribute.Text;
+    site_floor: Schema.Attribute.String;
+    site_landmark: Schema.Attribute.Text;
+    site_location: Schema.Attribute.Text;
+    site_logistic: Schema.Attribute.String;
+    site_parking: Schema.Attribute.Text;
+    site_remark: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    worker_amount: Schema.Attribute.String;
+  };
+}
+
 export interface ApiProductBrandProductBrand
   extends Struct.CollectionTypeSchema {
   collectionName: 'product_brands';
@@ -1360,6 +1419,7 @@ declare module '@strapi/strapi' {
       'api::foreman-job-survey.foreman-job-survey': ApiForemanJobSurveyForemanJobSurvey;
       'api::foreman-job.foreman-job': ApiForemanJobForemanJob;
       'api::global.global': ApiGlobalGlobal;
+      'api::office-note.office-note': ApiOfficeNoteOfficeNote;
       'api::product-brand.product-brand': ApiProductBrandProductBrand;
       'api::product-category.product-category': ApiProductCategoryProductCategory;
       'api::product-type.product-type': ApiProductTypeProductType;

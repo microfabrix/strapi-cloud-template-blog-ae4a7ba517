@@ -1,0 +1,89 @@
+{
+  "kind": "collectionType",
+  "collectionName": "office_notes",
+  "info": {
+    "singularName": "office-note",
+    "pluralName": "office-notes",
+    "displayName": "Office Note"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "project_name": {
+      "type": "string"
+    },
+    "project_company": {
+      "type": "string"
+    },
+    "contact_name": {
+      "type": "string"
+    },
+    "phone_number": {
+      "type": "string"
+    },
+    "line_id": {
+      "type": "string"
+    },
+    "site_address": {
+      "type": "text"
+    },
+    "site_landmark": {
+      "type": "text"
+    },
+    "site_floor": {
+      "type": "string"
+    },
+    "site_logistic": {
+      "type": "string"
+    },
+    "site_location": {
+      "type": "text"
+    },
+    "site_access_contact_name": {
+      "type": "string"
+    },
+    "site_access_card_needed": {
+      "type": "boolean"
+    },
+    "car_amount": {
+      "type": "string"
+    },
+    "worker_amount": {
+      "type": "string"
+    },
+    "extra_hire_amount": {
+      "type": "string"
+    },
+    "site_parking": {
+      "type": "text"
+    },
+    "site_remark": {
+      "type": "text"
+    },
+    "product_categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-category.product-category"
+    },
+    "product_sku": {
+      "type": "string"
+    },
+    "product_types": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-type.product-type"
+    },
+    "product_amount": {
+      "type": "string"
+    },
+    "product_unit": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product-unit.product-unit"
+    },
+    "product_remark": {
+      "type": "text"
+    }
+  }
+}
