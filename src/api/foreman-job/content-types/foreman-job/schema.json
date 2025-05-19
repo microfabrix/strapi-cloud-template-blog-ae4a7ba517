@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "foreman_jobs",
+  "info": {
+    "singularName": "foreman-job",
+    "pluralName": "foreman-jobs",
+    "displayName": "Foreman Job"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Detail": {
+      "type": "text"
+    }
+  }
+}

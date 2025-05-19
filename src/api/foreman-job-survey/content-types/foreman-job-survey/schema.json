@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "foreman_job_surveys",
+  "info": {
+    "singularName": "foreman-job-survey",
+    "pluralName": "foreman-job-surveys",
+    "displayName": "Foreman Job Survey"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "foreman_name": {
+      "type": "string"
+    },
+    "project_name": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "contact_name": {
+      "type": "string"
+    },
+    "contact_phone": {
+      "type": "string"
+    },
+    "contact_line_id": {
+      "type": "string"
+    },
+    "site_address": {
+      "type": "text"
+    },
+    "site_landmark": {
+      "type": "text"
+    },
+    "site_floor_number": {
+      "type": "string"
+    },
+    "site_google_map_location": {
+      "type": "string"
+    },
+    "site_access_contact": {
+      "type": "string"
+    },
+    "site_access_card_needed": {
+      "type": "boolean"
+    },
+    "site_car_park": {
+      "type": "text"
+    },
+    "site_remark": {
+      "type": "text"
+    },
+    "product_categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-category.product-category"
+    },
+    "product_sku": {
+      "type": "string"
+    },
+    "product_types": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-type.product-type"
+    },
+    "amount": {
+      "type": "integer"
+    },
+    "product_remark": {
+      "type": "text"
+    }
+  }
+}

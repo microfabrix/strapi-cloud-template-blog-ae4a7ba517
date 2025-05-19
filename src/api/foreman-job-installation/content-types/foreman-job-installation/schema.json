@@ -1,0 +1,84 @@
+{
+  "kind": "collectionType",
+  "collectionName": "foreman_job_installations",
+  "info": {
+    "singularName": "foreman-job-installation",
+    "pluralName": "foreman-job-installations",
+    "displayName": "Foreman Job Installation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "project_name": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "site_contact_name": {
+      "type": "string"
+    },
+    "site_phone": {
+      "type": "string"
+    },
+    "site_line_id": {
+      "type": "string"
+    },
+    "installation_detail": {
+      "type": "text"
+    },
+    "installation_time": {
+      "type": "text"
+    },
+    "technician_team_name": {
+      "type": "string"
+    },
+    "site_foreman_name": {
+      "type": "string"
+    },
+    "site_address": {
+      "type": "text"
+    },
+    "site_landmark": {
+      "type": "text"
+    },
+    "site_floor_number": {
+      "type": "string"
+    },
+    "site_location_google_map": {
+      "type": "string"
+    },
+    "site_acccess_contact": {
+      "type": "string"
+    },
+    "site_access_card": {
+      "type": "boolean"
+    },
+    "site_parking": {
+      "type": "text"
+    },
+    "site_remark": {
+      "type": "text"
+    },
+    "product_categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-category.product-category"
+    },
+    "product_sku": {
+      "type": "string"
+    },
+    "product_types": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-type.product-type"
+    },
+    "product_amount": {
+      "type": "integer"
+    },
+    "product_remark": {
+      "type": "text"
+    }
+  }
+}

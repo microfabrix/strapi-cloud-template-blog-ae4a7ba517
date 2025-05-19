@@ -502,6 +502,144 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiForemanJobInstallationForemanJobInstallation
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'foreman_job_installations';
+  info: {
+    displayName: 'Foreman Job Installation';
+    pluralName: 'foreman-job-installations';
+    singularName: 'foreman-job-installation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    company: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    installation_detail: Schema.Attribute.Text;
+    installation_time: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::foreman-job-installation.foreman-job-installation'
+    > &
+      Schema.Attribute.Private;
+    product_amount: Schema.Attribute.Integer;
+    product_categories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-category.product-category'
+    >;
+    product_remark: Schema.Attribute.Text;
+    product_sku: Schema.Attribute.String;
+    product_types: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-type.product-type'
+    >;
+    project_name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    site_acccess_contact: Schema.Attribute.String;
+    site_access_card: Schema.Attribute.Boolean;
+    site_address: Schema.Attribute.Text;
+    site_contact_name: Schema.Attribute.String;
+    site_floor_number: Schema.Attribute.String;
+    site_foreman_name: Schema.Attribute.String;
+    site_landmark: Schema.Attribute.Text;
+    site_line_id: Schema.Attribute.String;
+    site_location_google_map: Schema.Attribute.String;
+    site_parking: Schema.Attribute.Text;
+    site_phone: Schema.Attribute.String;
+    site_remark: Schema.Attribute.Text;
+    technician_team_name: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiForemanJobSurveyForemanJobSurvey
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'foreman_job_surveys';
+  info: {
+    displayName: 'Foreman Job Survey';
+    pluralName: 'foreman-job-surveys';
+    singularName: 'foreman-job-survey';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    amount: Schema.Attribute.Integer;
+    company: Schema.Attribute.String;
+    contact_line_id: Schema.Attribute.String;
+    contact_name: Schema.Attribute.String;
+    contact_phone: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    foreman_name: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::foreman-job-survey.foreman-job-survey'
+    > &
+      Schema.Attribute.Private;
+    product_categories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-category.product-category'
+    >;
+    product_remark: Schema.Attribute.Text;
+    product_sku: Schema.Attribute.String;
+    product_types: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-type.product-type'
+    >;
+    project_name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    site_access_card_needed: Schema.Attribute.Boolean;
+    site_access_contact: Schema.Attribute.String;
+    site_address: Schema.Attribute.Text;
+    site_car_park: Schema.Attribute.Text;
+    site_floor_number: Schema.Attribute.String;
+    site_google_map_location: Schema.Attribute.String;
+    site_landmark: Schema.Attribute.Text;
+    site_remark: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiForemanJobForemanJob extends Struct.CollectionTypeSchema {
+  collectionName: 'foreman_jobs';
+  info: {
+    displayName: 'Foreman Job';
+    pluralName: 'foreman-jobs';
+    singularName: 'foreman-job';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Detail: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::foreman-job.foreman-job'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -597,6 +735,65 @@ export interface ApiProductCategoryProductCategory
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
+    product: Schema.Attribute.Relation<'manyToOne', 'api::product.product'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProductTypeProductType extends Struct.CollectionTypeSchema {
+  collectionName: 'product_types';
+  info: {
+    displayName: 'Product Type';
+    pluralName: 'product-types';
+    singularName: 'product-type';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Detail: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-type.product-type'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProductUnitProductUnit extends Struct.CollectionTypeSchema {
+  collectionName: 'product_units';
+  info: {
+    displayName: 'Product Unit';
+    pluralName: 'product-units';
+    singularName: 'product-unit';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Detail: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-unit.product-unit'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -607,6 +804,7 @@ export interface ApiProductCategoryProductCategory
 export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
+    description: '';
     displayName: 'Product';
     pluralName: 'products';
     singularName: 'product';
@@ -629,6 +827,14 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     Picture: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
+    >;
+    product_brand: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::product-brand.product-brand'
+    >;
+    product_categories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-category.product-category'
     >;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -1150,9 +1356,14 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
+      'api::foreman-job-installation.foreman-job-installation': ApiForemanJobInstallationForemanJobInstallation;
+      'api::foreman-job-survey.foreman-job-survey': ApiForemanJobSurveyForemanJobSurvey;
+      'api::foreman-job.foreman-job': ApiForemanJobForemanJob;
       'api::global.global': ApiGlobalGlobal;
       'api::product-brand.product-brand': ApiProductBrandProductBrand;
       'api::product-category.product-category': ApiProductCategoryProductCategory;
+      'api::product-type.product-type': ApiProductTypeProductType;
+      'api::product-unit.product-unit': ApiProductUnitProductUnit;
       'api::product.product': ApiProductProduct;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
