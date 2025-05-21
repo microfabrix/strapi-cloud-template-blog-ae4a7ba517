@@ -4,7 +4,8 @@
   "info": {
     "singularName": "foreman-job-installation",
     "pluralName": "foreman-job-installations",
-    "displayName": "Foreman Job Installation"
+    "displayName": "Foreman Job Installation",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -79,6 +80,9 @@
     },
     "product_remark": {
       "type": "text"
+    },
+    "date_time": {
+      "type": "datetime"
     }
   }
 }

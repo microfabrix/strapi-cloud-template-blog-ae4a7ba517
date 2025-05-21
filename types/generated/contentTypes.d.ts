@@ -506,6 +506,7 @@ export interface ApiForemanJobInstallationForemanJobInstallation
   extends Struct.CollectionTypeSchema {
   collectionName: 'foreman_job_installations';
   info: {
+    description: '';
     displayName: 'Foreman Job Installation';
     pluralName: 'foreman-job-installations';
     singularName: 'foreman-job-installation';
@@ -518,6 +519,7 @@ export interface ApiForemanJobInstallationForemanJobInstallation
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    date_time: Schema.Attribute.DateTime;
     installation_detail: Schema.Attribute.Text;
     installation_time: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -562,6 +564,7 @@ export interface ApiForemanJobSurveyForemanJobSurvey
   extends Struct.CollectionTypeSchema {
   collectionName: 'foreman_job_surveys';
   info: {
+    description: '';
     displayName: 'Foreman Job Survey';
     pluralName: 'foreman-job-surveys';
     singularName: 'foreman-job-survey';
@@ -578,6 +581,7 @@ export interface ApiForemanJobSurveyForemanJobSurvey
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    date_time: Schema.Attribute.DateTime;
     foreman_name: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -675,6 +679,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
 export interface ApiOfficeNoteOfficeNote extends Struct.CollectionTypeSchema {
   collectionName: 'office_notes';
   info: {
+    description: '';
     displayName: 'Office Note';
     pluralName: 'office-notes';
     singularName: 'office-note';
@@ -688,6 +693,7 @@ export interface ApiOfficeNoteOfficeNote extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    date_time: Schema.Attribute.DateTime;
     extra_hire_amount: Schema.Attribute.String;
     line_id: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -703,7 +709,6 @@ export interface ApiOfficeNoteOfficeNote extends Struct.CollectionTypeSchema {
       'api::product-category.product-category'
     >;
     product_remark: Schema.Attribute.Text;
-    product_sku: Schema.Attribute.String;
     product_types: Schema.Attribute.Relation<
       'oneToMany',
       'api::product-type.product-type'
@@ -712,6 +717,7 @@ export interface ApiOfficeNoteOfficeNote extends Struct.CollectionTypeSchema {
       'oneToOne',
       'api::product-unit.product-unit'
     >;
+    products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     project_company: Schema.Attribute.String;
     project_name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;

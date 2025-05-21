@@ -4,7 +4,8 @@
   "info": {
     "singularName": "office-note",
     "pluralName": "office-notes",
-    "displayName": "Office Note"
+    "displayName": "Office Note",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -66,9 +67,6 @@
       "relation": "oneToMany",
       "target": "api::product-category.product-category"
     },
-    "product_sku": {
-      "type": "string"
-    },
     "product_types": {
       "type": "relation",
       "relation": "oneToMany",
@@ -84,6 +82,14 @@
     },
     "product_remark": {
       "type": "text"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    },
+    "date_time": {
+      "type": "datetime"
     }
   }
 }

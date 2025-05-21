@@ -4,7 +4,8 @@
   "info": {
     "singularName": "foreman-job-survey",
     "pluralName": "foreman-job-surveys",
-    "displayName": "Foreman Job Survey"
+    "displayName": "Foreman Job Survey",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -70,6 +71,9 @@
     },
     "product_remark": {
       "type": "text"
+    },
+    "date_time": {
+      "type": "datetime"
     }
   }
 }
